@@ -74,6 +74,10 @@ class LinkController extends Controller
 
         $link->syncTags($tags);
 
+        if(isset($groupIds[0])){
+            return Redirect::route('groups.show', $groupIds[0]);
+        }
+        
         return Redirect::route('links.show', $link->id);
     }
 
